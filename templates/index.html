@@ -1,0 +1,22 @@
+{% extends "_layout.html" %}
+
+{% block body %}
+    <div id="info-box">
+        <div>
+            <div id="logo"><span class="hdevs">&lt;HeurekaDevs/&gt;</span> challenge</div>
+            <p>Pravidla jsou jednoduchá:</p>
+            <p>Ukážeme ti pět kousků kódu a každý z nich představuje jedno přísloví či rčení. Tvým úkolem je uhodnout, o jaké rčení se jedná a napsat jej česky na klávesnici.</p>
+            <p>Vše je možné ovládat z klávesnice, a proto si zapamatuj, že jakmile napíšeš odpověď, klávesou <span class="shortcut">ENTER</span> ji odešleš.</p>
+            <p>Pokud se na hádance zasekneš, můžeš klávesou <span class="shortcut">ESC</span> hádanku přeskočit. V tom případě ale ztratíš minutu drahocenného času jako penalizaci.</p>
+            <p>Hádanek je celkem pět a cílem je získat co nejrychlejší čas od začátku až do konce.</p>
+        </div>
+    </div>
+    <a id="start-button" href="{{ url_for('start') }}"><span class="shortcut">ENTER</span> Start</a>
+    <script>
+        document.onkeydown=function(ev){
+            if (ev.keyCode == 13) { //return
+                location.href = "{{ url_for('start') }}";
+            }
+        };
+    </script>
+{% endblock %}

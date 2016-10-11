@@ -1,0 +1,219 @@
+body {
+    background: #333;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Mono', monospace;
+}
+
+code, pre, xmp, plaintext {
+        font-family: 'Roboto Mono', monospace;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+#answer {
+    position: absolute;
+    bottom: 10vh;
+    width: 100%;
+    text-align: center;
+    font-size: 3em;
+    background: transparent;
+    color: #a6e22e;
+    outline: none;
+    border: none;
+    font-family: 'Roboto Mono', monospace;
+}
+
+#question {
+    height: 80vh;
+    width: 100vw;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#question code {
+    text-align: left;
+    overflow: scroll;
+    max-height: 80vh;
+
+}
+
+#repeat-notice {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 30px;
+    text-align: right;
+    font-size: 1.5em;
+    color: #fff;
+    opacity: 1;
+}
+
+#repeat-notice.hide {
+    transition: opacity 5s ease-in-out;
+    opacity: 0;
+}
+
+#repeat-icon {
+    color: #ff2642;
+    font-size: 7em;
+    text-align: center;
+}
+
+#timer {
+    color: #555555;
+    font-size: 4em;
+    position: absolute;
+    top: 0px;
+    right: 20px;
+    z-index: -1;
+    text-shadow: 2px 4px 2px #333, 0 0 0 #000, 2px 4px 2px #333;
+    color: rgba(70,70,70, 0.8);
+
+}
+
+#skip-button {
+    z-index: 9;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 2;
+    font-size: 1.3em;
+}
+
+#submit-button {
+    z-index: 9;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 1.3em;
+    cursor: pointer;
+}
+
+#start-button {
+    z-index: 9;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 1.3em;
+    cursor: pointer;
+}
+
+
+#restart-button {
+    z-index: 9;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 1.3em;
+    cursor: pointer;
+}
+
+
+.shortcut {
+    border: 1px solid #999999;
+    padding: 0.5em;
+    border-radius: 10%;
+    font-size: 0.6em;
+    display: inline-block;
+    vertical-align: middle;
+    background: #222;
+    color: #999999;
+}
+
+.shake {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+.opaque {
+    opacity: 0.2;
+}
+
+
+#info-box {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+}
+
+#info-box div {
+    max-width: 700px;
+}
+
+#logo {
+    display: block;
+    font-size: 2em;
+    text-align: right;
+    line-height: 1.2em;
+    color: rgba(255, 229, 141, 0.9);
+    text-shadow: 5px 1px 10px rgba(0, 0, 0, 1);
+    width: 3em;
+}
+
+.hdevs {
+    font-size: 1.5em;
+    color: rgba(141, 229, 255, 0.7);
+    display: block;
+}
+
+.big {
+    font-size: 2em;
+
+    margin: 0;
+    padding: 0;
+}
+
+#time {
+    font-size: 5em;
+    margin-top: 0;
+    padding-top: 0;
+    color: #a6e22e;
+}
+
+.answer-node {
+    margin-bottom: 30px;
+}
+.answer-node p {
+    margin: 0;
+    padding: 0;
+}
+
+.right-answer {
+    color: #a6e22e;
+}
+
+.right-answer.fail {
+    color: #FC3A3C;
+}
+
+.user-answer {
+
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}

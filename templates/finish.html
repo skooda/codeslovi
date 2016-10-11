@@ -1,0 +1,27 @@
+{% extends "_layout.html" %}
+
+{% block body %}
+    <div id="info-box">
+        <div>
+            <h2 class="big">Tvůj čas:</h2>
+            <p id="time">{{ total_time }}</p>
+
+            <h2 class="big">Tvé odpovědi:</h2>
+            <ul id="answer-list">
+                {% for answer in answers %}
+                    <li class="answer-node">
+                        <p class="right-answer {% if not answer[0] %}fail{% endif %}">{{ answer[1] }}</p>
+                        {% if answer[0] %}
+                            <p class="user-answer">Tvá odpověď: {{ answer[0] }}</p>
+                        {% else %}
+                            <p class="user-answer">Přeskočeno</P></p>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <a id="restart-button" href="{{ url_for('index') }}" onclick="return confirm('Opravdu chceš smazat čas a odpovědi?');">Znovu</a>
+
+{% endblock %}

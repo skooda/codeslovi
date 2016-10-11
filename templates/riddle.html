@@ -1,0 +1,66 @@
+{% extends "_layout.html" %}
+
+{% block body %}
+    <div id="question">
+        <code>
+            {{ code | safe }}
+        </code>
+    </div>
+
+    <div id="answer-box">
+        <form id="answer-form" method="post" action="/answer">
+            <input autofocus autocomplete="off" id="answer" name="answer" type="textarea" onblur="this.select()">
+            <input type="hidden" name="id" value="{{ id }}">
+            <a id="submit-button"><span class="shortcut">RETURN</span> Odeslat</a>
+        </form>
+    </div>
+
+    <div id="timer">11m 21.42s</div>
+
+    <a href="{{ url_for('skip', id=id) }}" id="skip-button"><span class="shortcut">ESC</span> Přeskočit <span class="opaque">(penalta 1 minuta)</span></a>
+
+    {% if repeat %}
+        <div id="repeat-notice">
+            <div id="repeat-icon">✖</div>
+            Špatně :(, zkus to znovu.
+        </div>
+        <script>
+            window.onload = function() {
+                document.getElementById('repeat-notice').classList.add('hide');
+                document.getElementById('question').classList.add('shake');
+            }
+        </script>
+    {% endif %}
+
+    <script>
+        var t = document.getElementById('timer');
+
+        var timer = setInterval(function() {
+            var now = new Date().getTime();
+            var time = now - {{ start_time }};
+
+            var min = Math.floor(time/60000);
+            var sec = (time/1000 - min*60).toFixed(2);
+
+            if (min < 10) {
+                min = "0" + min;
+            }
+
+            if (sec < 10) {
+                sec = "0" + sec;
+            }
+
+            t.innerHTML = min + ":" + sec;
+        }, 10)
+
+        document.getElementById('submit-button').onclick = function() {
+            document.getElementById('answer-form').submit();
+        }
+
+        document.onkeydown=function(ev){
+            if (ev.keyCode == 27) { //esc
+                location.href = "{{ url_for('skip', id=id) }}";
+            }
+        };
+    </script>
+{% endblock %}
